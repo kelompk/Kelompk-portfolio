@@ -1,31 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelvin Omo-Igbinedion | Portfolio</title>
-   <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<script>
-    const sections = document.querySelectorAll("section");
-
-    const revealSections = () => {
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const screenHeight = window.innerHeight;
-
-            if (sectionTop < screenHeight - 100) {
-                section.classList.add("active");
-            }
-        });
-    };
-
-    window.addEventListener("scroll", revealSections);
-    revealSections();
-</script>
-
 <body>
 
     <!-- Navigation -->
@@ -98,6 +79,24 @@
         <p>© 2025 Kelvin Omo-Igbinedion</p>
     </footer>
 
-</body>
+    <script>
+        const sections = document.querySelectorAll("section");
 
+        const revealSections = () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+
+                if (sectionTop < screenHeight - 100) {
+                    section.classList.add("active");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", revealSections);
+        // Initial check when page loads
+        revealSections();
+    </script>
+
+</body>
 </html>
