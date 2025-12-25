@@ -5,20 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelvin Omo-Igbinedion | Portfolio</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- Animated Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
 
     <!-- Navigation -->
     <header>
         <nav>
             <h2 class="logo">Kelvin</h2>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -27,16 +35,17 @@
     <section id="home" class="hero">
         <h1>Kelvin Omo-Igbinedion</h1>
         <p>Software Engineering Student | Aspiring Developer</p>
-        <a href="#about" class="btn">Explore</a>
+        <a href="#about" class="btn">Explore My Journey <i class="fas fa-arrow-down"></i></a>
     </section>
 
     <!-- About -->
     <section id="about">
         <h2>About Me</h2>
         <p>
-            I am a Software Engineering student with a strong interest in programming
-            and modern web technologies. I am currently learning Python and improving
-            my development skills through practical projects.
+            I am a passionate Software Engineering student with a strong interest in programming
+            and modern web technologies. Currently focused on mastering Python and expanding
+            my development skills through hands-on projects. I believe in continuous learning
+            and enjoy solving real-world problems with code.
         </p>
     </section>
 
@@ -44,39 +53,54 @@
     <section id="skills">
         <h2>Skills & Learning</h2>
         <div class="skills-box">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Python (Beginner)</span>
-            <span>JavaScript (Basic)</span>
-            <span>WhatsApp Bot Development</span>
+            <span><i class="fab fa-html5"></i> HTML</span>
+            <span><i class="fab fa-css3-alt"></i> CSS</span>
+            <span><i class="fab fa-python"></i> Python (Beginner)</span>
+            <span><i class="fab fa-js-square"></i> JavaScript (Basic)</span>
+            <span><i class="fab fa-whatsapp"></i> WhatsApp Bot Development</span>
+            <span><i class="fas fa-database"></i> Database Fundamentals</span>
+            <span><i class="fas fa-code-branch"></i> Version Control (Git)</span>
+            <span><i class="fas fa-mobile-alt"></i> Responsive Design</span>
         </div>
     </section>
 
     <!-- Projects -->
     <section id="projects">
-        <h2>Projects</h2>
+        <h2>My Projects</h2>
         <div class="project-card">
-            <h3>WhatsApp Bot</h3>
+            <h3>WhatsApp Class Assistant Bot</h3>
             <p>
-                A WhatsApp bot developed to remind my classmates of the daily
-                class schedule and managing group interactions.
+                A smart WhatsApp bot developed to automate class management by sending daily
+                schedule reminders, assignment deadlines, and managing group interactions.
+                Built with Python and integrated with WhatsApp API to help classmates stay
+                organized and informed about academic activities.
+            </p>
+        </div>
+        <div class="project-card" style="margin-top: 40px;">
+            <h3>Portfolio Website</h3>
+            <p>
+                This responsive portfolio website showcasing my skills, projects, and journey
+                as a developer. Built with HTML5, CSS3, and JavaScript featuring modern
+                animations, gradient backgrounds, and smooth scrolling effects.
             </p>
         </div>
     </section>
 
     <!-- Contact -->
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Connect with me on my social platforms</p>
+        <h2>Let's Connect</h2>
+        <p>Feel free to reach out to me on any of these platforms</p>
         <div class="socials">
-            <a href="#">WhatsApp</a>
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
+            <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 Kelvin Omo-Igbinedion</p>
+        <p>© 2025 Kelvin Omo-Igbinedion. Made with <i class="fas fa-heart" style="color: #ff4757;"></i> and Code.</p>
     </footer>
 
     <script>
@@ -93,9 +117,37 @@
             });
         };
 
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
         window.addEventListener("scroll", revealSections);
-        // Initial check when page loads
-        revealSections();
+        window.addEventListener("load", revealSections);
+        
+        // Add typing effect to hero text
+        const heroText = document.querySelector('.hero h1');
+        const originalText = heroText.textContent;
+        heroText.textContent = '';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroText.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
     </script>
 
 </body>
